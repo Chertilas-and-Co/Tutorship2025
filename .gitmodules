@@ -1,0 +1,3 @@
+[submodule "themes/stack"]
+	path = themes/stack
+	url = git@github.com:git@github.com:Chertilas-and-Co/hugo-theme-stack.git
