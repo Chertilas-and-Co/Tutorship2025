@@ -1,89 +1,34 @@
 {{ define "main" }}
-    <section class="greeting-section" style="text-align: center; margin-top: 3.5rem;">
-        <h1 style="font-size: 2.5rem; font-weight: 800; color: var(--accent-color, #527cff); margin-bottom: 2.3rem;">
-            Вот гайды за различные годы:
-        </h1>
-    </section>
+<section class="hero">
+  <div class="hero-inner">
+    <h1 class="site-title">SE-Tutorship, надо как-то переименовать</h1>
+    <p class="site-tagline">Выбирайте учебный год поступления — пользуйтесь материалами — проходите путь первокурсника без стресса!</p>
+  </div>
+</section>
 
-    <section class="years-cards-row">
+<div class="content-wrapper">
+  <!-- Секция «О проекте» -->
+  <section class="about">
+    <h2>Что внутри?</h2>
+    <ul class="features">
+      <li>Обзоры учебных дисциплин</li>
+      <li>Материалы для экзаменов и зачётов</li>
+      <li>Советы старших курсов</li>
+      <li>Подборки полезных ссылок</li>
+    </ul>
+  </section>
 
-<a href="/posts/2024/" class="big-year-card">
-                <div class="big-year-card-title">2024-2025</div>
-                <div class="big-year-card-content">Сделаны силами ГКЧП ПИ</div>
-            </a>
-
-<a href="/years/2025/" class="big-year-card">
-                <div class="big-year-card-title">2025-2026</div>
-                <div class="big-year-card-content">Абоба?</div>
-            </a>
-
-<a href="/years/2026/" class="big-year-card">
-                <div class="big-year-card-title">2026-2027</div>
-                <div class="big-year-card-content">Сделаны силами бля хз кого</div>
-            </a>
-
-
-<style>
-.years-cards-row {
-    margin-top: 2.5rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem 2rem;
-    padding-bottom: 1.5rem;
-}
-
-.big-year-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 350px;
-    min-height: 200px;
-    background: var(--card-background, #f6f7fd);
-    border-radius: 32px;
-    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    text-decoration: none;
-    padding: 2.2rem 2.3rem 2rem 2.3rem;
-    margin-bottom: 0.7rem;
-    transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7), transform 0.19s;
-    cursor: pointer;
-    position: relative;
-}
-
-.big-year-card:hover {
-    box-shadow: 0 14px 36px rgba(67,67,131, 0.19);
-    transform: translateY(-6px) scale(1.027);
-}
-
-.big-year-card-title {
-    font-size: 2.7rem;
-    font-weight: 800;
-    color: var(--accent-color, #466aff);
-    margin-bottom: 1.2rem;
-    margin-top: 0.4rem;
-    letter-spacing: 1px;
-    line-height: 1.08;
-}
-
-.big-year-card-content {
-    font-size: 2.15rem;
-    color: #adb7db;
-    opacity: 0.92;
-    flex: 1;
-    display: flex;
-}
-@media (max-width: 900px) {
-    .years-cards-row {
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-    .big-year-card {
-        width: 90vw;
-        min-width: 0;
-        max-width: 410px;
-    }
-}
-</style>
-    </section>
+  <!-- Карточки годов -->
+  <section class="years-grid">
+    <a class="year-card" href="/posts/2024/">
+      <span class="year-label">2024-2025</span>
+    </a>
+    <a class="year-card" href="/posts/2025/">
+      <span class="year-label">2025-2026</span>
+    </a>
+    <a class="year-card" href="/posts/2026/">
+      <span class="year-label">2026-2027</span>
+    </a>
+  </section>
+</div>
 {{ end }}
