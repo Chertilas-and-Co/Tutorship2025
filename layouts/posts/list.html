@@ -3,9 +3,9 @@
 <div class="posts-cards">
     {{ range sort .Pages "Date" "asc"}}
     <a href="{{ .RelPermalink }}">
-        <div class="big-year-card">
-            <div class="big-year-card-title">{{ .Title }}</div>
-            <div class="big-year-card-content">
+        <div class="post-card">
+            <div class="post-card-title">{{ .Title }}</div>
+            <div class="post-card-content">
                 {{ with .Params.description }}{{ . }}{{ end }}
             </div>
             <div class="big-year-card-content">
@@ -15,55 +15,4 @@
     </a>
     {{ end }}
 </div>
-
-
-<style>
-.posts-cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem 2rem;
-}
-.big-year-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 350px;
-    min-height: 200px;
-    background: var(--card-background, #f6f7fd);
-    border-radius: 32px;
-    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    text-decoration: none;
-    padding: 2rem 2rem 2rem 2rem;
-    transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7), transform 0.19s;
-    cursor: pointer;
-    position: relative;
-}
-
-.big-year-card:hover {
-    box-shadow: 0 14px 36px rgba(67,67,131, 0.19);
-    transform: translateY(-6px) scale(1.027);
-}
-
-.big-year-card-title {
-    font-size: 2.7rem;
-    font-weight: 800;
-    color: var(--accent-color, #466aff);
-    margin-bottom: 1.2rem;
-    margin-top: 0.4rem;
-    line-height: 1.08;
-}
-
-.big-year-card-content {
-    font-size: 2.15rem;
-    color: #adb7db;
-    opacity: 0.92;
-    flex: 1;
-    display: flex;
-}
-
-
-
-</style>
-
 {{ end }}
