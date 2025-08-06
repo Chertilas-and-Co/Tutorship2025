@@ -4,3 +4,4 @@ services:
     restart: always 
     ports: 
       - "1313:1313"
+    platform: linux/amd64
