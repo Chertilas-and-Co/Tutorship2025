@@ -5,7 +5,13 @@
 ---
 ## Установка и запуск
 
+1. **Скопируйте репозиторий**
 ```bash
+git clone --recursive git@github.com:Chertilas-and-Co/Tutorship2025.git 
+```
+2. **Запустите c помощью *docker compose up* ** 
+```bash
+cd Tutorship2025
 docker compose up
 ```
 Сайт будет поднят на http://localhost:1313
