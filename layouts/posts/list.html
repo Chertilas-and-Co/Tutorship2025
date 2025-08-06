@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 <div class="posts-cards">
-  {{ range .Pages }}
+  {{ range sort .Pages "Date" "asc"}}
       <a href="{{ .RelPermalink }}">
         <div class="big-year-card">
           <div class="big-year-card-title">{{ .Title }}</div>
