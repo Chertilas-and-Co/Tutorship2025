@@ -1,17 +1,20 @@
 {{ define "main" }}
+<h1>{{ .Title }}</h1>
 <div class="posts-cards">
-    {{ range .Pages }}
-    <a href="{{ .RelPermalink }}">
-    <div   class="big-year-card">
-        <div class="big-year-card-title">
-            {{ .Title }}
+  {{ range .Pages }}
+      <a href="{{ .RelPermalink }}">
+        <div class="big-year-card">
+          <div class="big-year-card-title">{{ .Title }}</div>
+          <div class="big-year-card-content">
+            {{ with .Params.description }}{{ . }}{{ end }}
+            {{ .Date.Format "02-01-2006" }}
+          </div>
         </div>
-        <div class="big-year-card-content"> {{.Description}}
-            {{ .Date.Format "02-01-2006" }}</div>
-    </div>
-    </a>
-    {{ end }}
+      </a>
+  {{ end }}
 </div>
+
+
 <style>
 .posts-cards {
     margin-top: 2.5rem;
