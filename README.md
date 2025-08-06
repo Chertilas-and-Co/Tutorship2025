@@ -9,7 +9,7 @@
 ```bash
 git clone --recursive git@github.com:Chertilas-and-Co/Tutorship2025.git 
 ```
-2. **Запустите c помощью *docker compose up* ** 
+2. Запустите c помощью *docker compose up* 
 ```bash
 cd Tutorship2025
 docker compose up
