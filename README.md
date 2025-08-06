@@ -5,40 +5,9 @@
 ---
 ## Установка и запуск
 
-### Предварительные требования:
-- curl
-- Git
-### Установка hugo:
-#### Linux (Ubuntu/Debian)
 ```bash
-curl -L https://github.com/gohugoio/hugo/releases/download/v0.148.2/hugo_extended_withdeploy_0.148.2_linux-amd64.deb -o hugo.deb
-sudo dpkg -i hugo.deb
-rm hugo.deb
+docker compose up
 ```
-
-### Клонирование репозитория и запуск
-1. **Клонируйте репозиторий:**
-```bash
-    git clone https://github.com/Chertilas-and-Co/Tutorship2025.git --recursive
-	cd Tutorship2025
-```
-2. **Запустите локальный сервер разработки:**
-```bash
-    hugo server -D
-```
-3. **Откройте сайт в браузере:**  
-    Перейдите по адресу `http://localhost:1313`
-
-### Проверка установки Hugo
-Убедитесь, что Hugo установлен корректно:
-```bash
-hugo version
-```
-Вы должны увидеть что-то вроде:
-```
-hugo v0.120.0+extended linux/amd64 BuildDate=2023-12-07T15:12:45Z VendorInfo=gohugoio
-```
-
 ---
 ## Добавление новых материалов
 
