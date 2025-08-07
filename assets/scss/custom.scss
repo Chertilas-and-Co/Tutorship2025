@@ -29,53 +29,100 @@
 .years-grid {
   font-family: "Inter", var(--base-font-family), -apple-system, sans-serif;
 }
-
 .posts-cards {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 30rem);
-    justify-content: center;
-    gap: 5rem 10rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 30rem);
+  justify-content: center;
+  gap: 5rem 10rem;
 }
 
+// Карточка
 .post-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 350px;
-    min-height: 200px;
-    background: var(--card-background, #f6f7fd);
-    border-radius: 32px;
-    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    text-decoration: none;
-    padding: 2rem 2rem 2rem 2rem;
-    transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7), transform 0.19s;
-    cursor: pointer;
-    position: relative;
-}
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 350px;
+  min-height: 200px;
+  background: var(--card-background);
+  border-radius: 32px;
+  box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
+              0 1.5px 2px rgba(0,0,0,0.04);
+  position: relative;
+  padding: 2rem;
+  transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7),
+              transform 0.19s,
+              opacity 0.2s;
+  cursor: pointer;
 
-.post-card:hover {
+  &:hover:not(.locked) {
     box-shadow: 0 14px 36px rgba(67,67,131, 0.19);
     transform: translateY(-6px) scale(1.027);
-}
+  }
 
-.post-card-title {
+  .post-card-title {
     font-size: 2.7rem;
     font-weight: 800;
-    color: var(--accent-color, #466aff);
-    margin-bottom: 1.2rem;
-    margin-top: 0.4rem;
+    color: var(--accent-color);
+    margin: 0 0 1.2rem 0;
     line-height: 1.08;
-}
+  }
 
-.post-card-content {
+  .post-card-content {
     font-size: 2.15rem;
     color: #adb7db;
     opacity: 0.92;
     flex: 1;
     display: flex;
-}
+    align-items: center;
+  }
 
+  // ссылка-ковер, занятая не заблокированными карточками
+  .card-link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  // Заблокированное состояние
+  &.locked {
+    opacity: 0.6;
+    cursor: not-allowed;
+
+    .lock-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(246,247,253,0.9);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-radius: 32px;
+      z-index: 2;
+
+      .icon-lock {
+        font-size: 3rem;
+        color: #666;
+        margin-bottom: 1rem;
+      }
+
+      .lock-text {
+        font-size: 1.6rem;
+        color: #666;
+      }
+    }
+
+    // отключаем hover-эффекты
+    &:hover {
+      transform: none;
+      box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
+                  0 1.5px 2px rgba(0,0,0,0.04);
+    }
+  }
+}
 // Hero-блок с полной шириной 
 .hero {
   border-radius: 0rem 0rem 5rem 5rem;

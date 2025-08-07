@@ -1,18 +1,28 @@
 {{ define "main" }}
 <h1>{{ .Title }}</h1>
 <div class="posts-cards">
-    {{ range sort .Pages "Date" "asc"}}
-    <a href="{{ .RelPermalink }}">
-        <div class="post-card">
-            <div class="post-card-title">{{ .Title }}</div>
-            <div class="post-card-content">
-                {{ with .Params.description }}{{ . }}{{ end }}
-            </div>
-            <div class="post-card-content">
-                {{ .Date.Format "02-01-2006" }}
-            </div>
+  {{ $now := now }}
+  {{ range sort .Pages "Date" "asc" }}
+    {{ $release := .Date }}
+    {{ $locked := $release.After $now }}
+    <div class="post-card{{ if $locked }} locked{{ end }}">
+      {{ if not $locked }}
+        <a href="{{ .RelPermalink }}" class="card-link"></a>
+      {{ end }}
+      <div class="post-card-title">{{ .Title }}</div>
+      <div class="post-card-content">
+        {{ with .Params.description }}{{ . }}{{ end }}
+      </div>
+      <div class="post-card-content">
+        {{ $release.Format "02-01-2006" }}
+      </div>
+      {{ if $locked }}
+        <div class="lock-overlay">
+          <span class="icon-lock" aria-hidden="true">🔒</span>
+          <div class="lock-text">Доступно с {{ $release.Format "02-01-2006" }}</div>
         </div>
-    </a>
-    {{ end }}
+      {{ end }}
+    </div>
+  {{ end }}
 </div>
 {{ end }}
