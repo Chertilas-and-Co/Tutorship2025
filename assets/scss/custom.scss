@@ -1,8 +1,8 @@
 :root {
   --tutorship-primary: #6366f1;
-  --tutorship-secondary: #8b5cf6;
-  --tutorship-gradient-start: #6366f1;
-  --tutorship-gradient-end: #8b5cf6;
+  --tutorship-secondary: #522baf;
+  --tutorship-gradient-start: #8d2cfc;
+  --tutorship-gradient-end: #6336ca;
   
   // Светлая тема
   --tutorship-text: #1f2937;
@@ -31,11 +31,13 @@
 }
 
 .posts-cards {
-    display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 30rem);
     justify-content: center;
-    gap: 2rem 2rem;
+    gap: 5rem 10rem;
 }
+
 .post-card {
     display: flex;
     flex-direction: column;
@@ -76,6 +78,7 @@
 
 // Hero-блок с полной шириной 
 .hero {
+  border-radius: 0rem 0rem 5rem 5rem;
   position: relative;
   background: linear-gradient(135deg, var(--tutorship-gradient-start) 0%, var(--tutorship-gradient-end) 100%);
   color: #ffffff;
@@ -256,6 +259,7 @@
   }
 
   .year-card {
+    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
     display: flex;
     align-items: center;
     justify-content: center;
