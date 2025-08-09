@@ -27,9 +27,12 @@
 .hero,
 .about,
 .years-grid {
+  transform: scale(110%);
   font-family: "Inter", var(--base-font-family), -apple-system, sans-serif;
 }
+
 .posts-cards {
+  transform: scale(1.15);
   width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 30rem);
@@ -240,7 +243,7 @@
 
     &::after {
       content: '';
-      display: block;
+      display: flex;
       width: 80px;
       height: 4px;
       background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
@@ -268,7 +271,7 @@
       border-radius: 1.5rem;
       padding: 2.5rem 2rem; 
       font-weight: 500;
-      font-size: 1.5rem;
+      font-size: 2rem;
       color: var(--tutorship-text);
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
@@ -291,7 +294,26 @@
       }
     }
   }
-}
+} 
+
+.year-selection-text{
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--tutorship-text);
+    position: relative;
+
+    &::after {
+      content: '';
+      display: flex;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
+      margin: 0.8rem auto 0;
+      border-radius: 2px;
+    }
+  } 
 
 //Сетка карточек годов
 .years-grid {
@@ -299,6 +321,7 @@
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin: 4rem auto 6rem;
+  align-items: center;
   
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
@@ -315,7 +338,7 @@
     border: 3px solid var(--tutorship-border);
     border-radius: 1.5rem;
     color: var(--tutorship-text);
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 700;
     text-decoration: none;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -384,6 +407,13 @@
       z-index: 1;
       transition: all 0.3s ease;
     }
+
+  }
+
+  .main-card{
+    box-shadow: 5px 15px 35px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
+    border: 5px solid var(--tutorship-border);
+    height: 200px;
   }
 }
 
@@ -416,11 +446,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
 
 .about {
   animation: fadeInUp 0.8s ease 0.2s both;
 }
 
+.year-selection-text {
+  animation: fadeInUp 0.8s ease 0.4s both;
+}
 .years-grid {
   animation: fadeInUp 0.8s ease 0.4s both;
 }
@@ -428,6 +462,30 @@
 .year-card:nth-child(1) { animation-delay: 0.1s; }
 .year-card:nth-child(2) { animation-delay: 0.2s; }
 .year-card:nth-child(3) { animation-delay: 0.3s; }
-}
+
+
+.not-found-card{
+  height: 1000px;
+  color: var(--tutorship-text);   
+  background: url("/background.png");
+  
+  .article-title, .article-subtitle {
+    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 160px;
+    background: var(--tutorship-card-bg);
+    border: 3px solid var(--tutorship-border);
+    border-radius: 1.5rem;
+    color: var(--tutorship-text);
+    font-size: 3rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+} 
 
 @import "footer-custom.scss";

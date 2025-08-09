@@ -57,7 +57,7 @@ function setupScrollToTop() {
   const btn = document.querySelector<HTMLElement>('.scroll-to-top');
   if (!btn) return;
 
-  btn.style.opacity = '0.6';
+  btn.style.opacity = '0';
   btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
@@ -66,7 +66,7 @@ function setupScrollToTop() {
     if (window.pageYOffset > 300) {
       btn.style.opacity = '1';
     } else {
-      btn.style.opacity = '0.6';
+      btn.style.opacity = '0';
     }
   });
 }
