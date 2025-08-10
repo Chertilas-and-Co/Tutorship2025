@@ -24,6 +24,12 @@
   --tutorship-hover-shadow: rgba(139, 92, 246, 0.3);
 }
 
+body {
+    background-image: url('/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
 .hero,
 .about,
 .years-grid {
