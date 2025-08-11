@@ -39,10 +39,6 @@ body {
   font-family: "Inter", var(--base-font-family), -apple-system, sans-serif;
 }
 
-.post-card-tutors-title {
-  text-align: center;
-  padding-top: 2rem;
-}
 .posts-cards {
   transform: scale(1.15);
   width: 100%;
@@ -138,6 +134,57 @@ body {
     }
   }
 }
+
+.post-card-tutors-title {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.post-card-tutors {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.post-card-tutor {
+  display: flex;
+  width: 500px;
+  min-height: 400px;
+  background: var(--card-background);
+  border-radius: 20px;
+  box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
+  0 1.5px 2px rgba(0,0,0,0.04);
+  position: relative;
+  padding: 2rem;
+  transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7),
+  transform 0.19s,
+  opacity 0.2s;
+
+  .photo {
+    z-index: 5000;
+    display: flex;
+    width: 300px;
+    height: 500px;
+    background-size: contain;
+    background-repeat: no-repeat; 
+  }
+  .rob{ 
+    background-image: url("/rob.png");    
+  }
+
+  .art{ 
+    background-image: url("/art.png");    
+  }
+
+  .dan{ 
+    background-image: url("/dan.png");    
+  }
+
+  .vic{ 
+    background-image: url("/vic.png");    
+  }
+}
+
 // Hero-блок с полной шириной 
 .hero {
   border-radius: 0rem 0rem 5rem 5rem;
