@@ -27,7 +27,7 @@
 body {
   background-image: url('/bg.png');
   background-repeat: no-repeat;             /* не повторять */
-  background-size: cover;                   /* покрыть всю область */
+  background-size: cover;                 /* покрыть всю область */
   background-position: center center;        /* центрировать */
   background-attachment: fixed;  
 }
@@ -39,6 +39,10 @@ body {
   font-family: "Inter", var(--base-font-family), -apple-system, sans-serif;
 }
 
+.post-card-tutors-title {
+  text-align: center;
+  padding-top: 2rem;
+}
 .posts-cards {
   transform: scale(1.15);
   width: 100%;
