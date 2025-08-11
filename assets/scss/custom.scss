@@ -137,7 +137,8 @@ body {
 
 .post-card-tutors-title {
   text-align: center;
-  padding-top: 2rem;
+  margin-bottom: 0;
+  margin-top: 10rem;
 }
 
 .post-card-tutors {
@@ -145,19 +146,18 @@ body {
   justify-content: center;
 }
 
+.tutor-name {
+  text-align: center;
+}
+
 .post-card-tutor {
-  display: row;
-  width: 200px;
-  height: 300px;
-  // background: var(--card-background);
-  border-radius: 20px;
-  // box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
-  // 0 1.5px 2px rgba(0,0,0,0.04);
   position: relative;
-  padding: 2rem;
-  transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7),
-  transform 0.19s,
-  opacity 0.2s;
+  display: flex;             
+  flex-direction: column;    
+  justify-content: center;  
+  align-items: center;
+  justify-content: center;
+  width: 200px;
 
   .photo {
     border-radius: 50%;
