@@ -17,7 +17,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Build site with Docker Compose
-        run: docker compose run --rm hugo hugo
+        run: docker compose run --rm web hugo
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
