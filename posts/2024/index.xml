@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>My New Hugo Site</title><link>https://example.org/posts/2024/</link><description>Recent content on My New Hugo Site</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 06 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://example.org/posts/2024/index.xml" rel="self" type="application/rss+xml"/><item><title>Огненные недра</title><link>https://example.org/posts/2024/4/</link><pubDate>Tue, 06 Jan 2026 00:00:00 +0000</pubDate><guid>https://example.org/posts/2024/4/</guid><description>&lt;!--
+Огненные недра
+До связи
+-->
+&lt;h2 id="физика--экзамен">Физика — экзамен&lt;/h2>
+&lt;p>&lt;img src="https://example.org/2024/4/%D0%BC%D0%B5%D0%BC%D1%87%D0%B8%D0%BA%D0%B8/%D1%87%D0%B5%D1%80%D0%BA%D0%B0%D0%B7%D0%B0%D1%8F%D1%86.jpg" alt="черказаяц">&lt;/p>
+&lt;table>
+&lt;tr>
+ &lt;td>&lt;b>Преподаватель&lt;/b>&lt;/td>
+ &lt;td>Черкассова Ольга Алексеевна&lt;/td>
+&lt;/tr>
+&lt;tr>
+ &lt;td>&lt;b>Аттестация в 2 семестре&lt;/b>&lt;/td>
+ &lt;td>Зачёт&lt;/td>
+&lt;/tr>
+&lt;tr>
+ &lt;td>&lt;b>Автоматы&lt;/b>&lt;/td>
+ &lt;td>Есть&lt;/td>
+&lt;/tr>
+&lt;/table>
+&lt;p>Как проходит зачёт и что важно: Ольга Алексеевна смотрела на посещаемость (кстати, она очень хорошо запоминает людей, которые ходили к ней на пары), также на сданые лабы, и если там более менее что-то было, то ставила зачёт. Заходишь-даешь_зачетку-берешь_&lt;em>билет-садишься&lt;/em> писать (лекциями, насколько помним, пользоваться можно было). Пишешь билет, потом идёшь в порядке очереди захода (как, например, на истории), желательно с билета не читать, а говорить своими словами, лишь изредка поглядывая, также еще дает решить задачу (вроде одну), сдаешь ей сразу в счет подкрепления своего ответа (объяснять ничего не нужно было по ней, просто она смотрит правильность и засчитывает). Если не получилось ответить, то просила сесть, подумать ещё, ответить на доп вопрос, иными словами, пыталась вытягивать.&lt;/p></description></item><item><title>Суровая весна</title><link>https://example.org/posts/2024/3/</link><pubDate>Sun, 09 Feb 2025 00:00:00 +0000</pubDate><guid>https://example.org/posts/2024/3/</guid><description>&lt;!--
+Суровая весна
+Гайд на второй семестр
+-->
+&lt;h2 id="физика--зачёт">Физика — зачёт&lt;/h2>
+&lt;blockquote>
+&lt;p>Вы думали, что она закончится в школе? Наивные)&lt;/p>&lt;/blockquote>
+&lt;table>
+ &lt;tr>
+ &lt;td>&lt;b>Преподаватель&lt;/b>&lt;/td>
+ &lt;td>Ольга Алексеевна Черкасова&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Длительность&lt;/b>&lt;/td>
+ &lt;td>2 семестра&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Аттестация в 1 семестре&lt;/b>&lt;/td>
+ &lt;td>Зачёт&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Автоматы&lt;/b>&lt;/td>
+ &lt;td>Да&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;h3 id="лекции">Лекции&lt;/h3>
+&lt;p>Обычные лекции, на которых Ольга Алексеевна показывает презентации. Основной задачей является их конспектирование, в особенности рисунков (графиков) и формул. Параллельно она рассказывает и объясняет то, что изображено на слайде. Именно в объяснениях Ольги Алексеевны содержится 70% ответа на любой вопрос зачёта или экзамена, однако конспектировать их &amp;mdash; задача со звёздочкой: Черкасова говорит довольно быстро.&lt;/p></description></item><item><title>Боевое крещение</title><link>https://example.org/posts/2024/2/</link><pubDate>Mon, 06 Jan 2025 00:00:00 +0000</pubDate><guid>https://example.org/posts/2024/2/</guid><description>&lt;!--
+Боевое крещение
+Гайд на первую сессию
+-->
+&lt;h1 id="пришло-время-боевого-крещения">Пришло время боевого крещения&lt;/h1>
+&lt;p>Расписание экзаменов доступно на старом сайте универа: &lt;a href="https://old.sgu.ru/schedule/knt/do/151#session">https://old.sgu.ru/schedule/knt/do/151#session&lt;/a>&lt;/p>
+&lt;p>Или на новом: &lt;a href="https://sgu.ru/schedule/knt/do/151#session">https://sgu.ru/schedule/knt/do/151#session&lt;/a>&lt;/p>
+&lt;h1 id="зачёты">Зачёты&lt;/h1>
+&lt;h2 id="введение-в-учебный-процесс">Введение в учебный процесс&lt;/h2>
+&lt;table>
+ &lt;tr>
+ &lt;td>&lt;b>Преподаватель&lt;/b>&lt;/td>
+ &lt;td>Ку&amp;#769;дрина Елена Вячеславовна&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Длительность&lt;/b>&lt;/td>
+ &lt;td>1 семестр&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Аттестация в 1 семестре&lt;/b>&lt;/td>
+ &lt;td>Зачёт&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Автоматы&lt;/b>&lt;/td>
+ &lt;td>Есть&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;p>Вы про него забыли, а он про вас помнит&amp;hellip; Для получения зачёта нужно выполнить 3 отработки (думаю, вы уже в курсе), а также 4 несложных задания на курсе. И то, и другое вы получили от старосты. Лучше сделать их сразу как только они откроются, так как по этому предмету &lt;strong>реально получить незачёт&lt;/strong>. Случаи были даже на нашем потоке.&lt;/p></description></item><item><title>Курс молодого бойца</title><link>https://example.org/posts/2024/1/</link><pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate><guid>https://example.org/posts/2024/1/</guid><description>&lt;!--
+Курс молодого бойца
+Гайд на первый семестр
+-->
+&lt;h1 id="учёба">Учёба&lt;/h1>
+&lt;h2 id="алгебра-и-геометрия--экзамен">Алгебра и геометрия — экзамен&lt;/h2>
+&lt;p>&lt;strong>С этого семестра меняется преподаватель по алгебре и геометрии, у вас Алии Владимировны не будет. Мы расскажем, как было у нас, но скорее всего у вас всё будет иначе, будьте внимательны.&lt;/strong>&lt;/p>
+&lt;table>
+ &lt;tr>
+ &lt;td>&lt;b>Преподаватель&lt;/b>&lt;/td>
+ &lt;td>Алия&amp;#769; Владимировна Буку&amp;#769;шева&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Длительность&lt;/b>&lt;/td>
+ &lt;td>2 семестра&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Аттестация в 1 семестре&lt;/b>&lt;/td>
+ &lt;td>Экзамен&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>&lt;b>Автоматы&lt;/b>&lt;/td>
+ &lt;td>Нет&lt;/td>
+ &lt;/tr>
+&lt;/table>
+&lt;h3 id="лекции">Лекции&lt;/h3>
+&lt;p>Стандартные лекции. На курсе будет файл с теорией к экзамену от тьютора наших тьюторов, Жени Мангасаряна, а также приложим наши билеты. Но лучше пишите всё сами, потому что материал и билеты от года к году могут меняться.&lt;/p></description></item></channel></rss>
