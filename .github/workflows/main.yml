@@ -13,14 +13,6 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@v4
 
-      - name: Set up Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: 'latest'
-
-      - name: Build
-        run: hugo --minify
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
