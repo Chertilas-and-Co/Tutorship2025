@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 1313
 
-ENTRYPOINT ["./hugo"]
+ENTRYPOINT ["./hugo", "-D"]
