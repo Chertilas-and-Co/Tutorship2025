@@ -4,7 +4,7 @@ on:
     branches:
       - main
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 jobs:
@@ -28,4 +28,4 @@ jobs:
         with:
           publish_dir: ./public
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          
+          publish_branch: gh-pages
