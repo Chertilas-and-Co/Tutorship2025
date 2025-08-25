@@ -26,10 +26,11 @@
 
 body {
   background-image: url('/bg.png');
-  background-repeat: no-repeat;             /* не повторять */
-  background-size: cover;                 /* покрыть всю область */
-  background-position: center center;        /* центрировать */
-  background-attachment: fixed;  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-size: 1.6rem;
 }
 
 .hero,
@@ -41,16 +42,24 @@ body {
 .posts-cards {
   width: 100%;
   display: grid;
- grid-template-columns: repeat(2, auto);
+  grid-template-columns: repeat(2, auto);
   justify-content: center;
   gap: 5rem 10rem;
 }
 
-// Карточка
+@media (max-width: 900px) {
+  .posts-cards {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+}
+
 .post-card {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex;
   width: 350px;
   min-height: 200px;
   background: var(--card-background);
@@ -60,133 +69,141 @@ body {
   position: relative;
   padding: 2rem;
   transition: box-shadow 0.25s cubic-bezier(.4, 1.5, .7, .7),
-  transform 0.19s,
-  opacity 0.2s;
+    transform 0.19s,
+    opacity 0.2s;
   cursor: pointer;
+}
 
-  &:hover:not(.locked) {
-    box-shadow: 0 14px 36px rgba(67,67,131, 0.19);
-    transform: translateY(-6px) scale(1.027);
+@media (max-width: 480px) {
+  .post-card {
+    width: 100%;
+    min-width: 90vw;
+    padding: 1.2rem;
+    border-radius: 18px;
+    min-height: 160px;
   }
-
   .post-card-title {
-    font-size: 2.7rem;
-    font-weight: 800;
-    color: var(--accent-color);
-    margin: 0 0 1.2rem 0;
-    line-height: 1.08;
+    font-size: 1.5rem;
   }
-
   .post-card-content {
-    font-size: 2.15rem;
-    color: #adb7db;
-    opacity: 0.92;
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-
-  // ссылка-ковер, занятая не заблокированными карточками
-  .card-link {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    text-decoration: none;
-    color: inherit;
-  }
-
-  // Заблокированное состояние
-  &.locked {
-    opacity: 0.6;
-    cursor: not-allowed;
-
-    .lock-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(246,247,253,0.9);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      border-radius: 32px;
-      z-index: 2;
-
-      .icon-lock {
-        font-size: 3rem;
-        color: #666;
-        margin-bottom: 1rem;
-      }
-
-      .lock-text {
-        font-size: 1.6rem;
-        color: #666;
-      }
-    }
-
-    // отключаем hover-эффекты
-    &:hover {
-      transform: none;
-      box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
-      0 1.5px 2px rgba(0,0,0,0.04);
-    }
+    font-size: 1.1rem;
   }
 }
 
+.post-card:hover:not(.locked) {
+  box-shadow: 0 14px 36px rgba(67,67,131, 0.19);
+  transform: translateY(-6px) scale(1.027);
+}
+
+.post-card .post-card-title {
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  margin: 0 0 1.2rem 0;
+  line-height: 1.08;
+}
+.post-card .post-card-content {
+  font-size: 2.15rem;
+  color: #adb7db;
+  opacity: 0.92;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.post-card .card-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Locked card styles */
+.post-card.locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.post-card.locked .lock-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(246,247,253,0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 32px;
+  z-index: 2;
+}
+.post-card.locked .lock-overlay .icon-lock {
+  font-size: 3rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+.post-card.locked .lock-overlay .lock-text {
+  font-size: 1.6rem;
+  color: #666;
+}
+/* Remove hover on locked */
+.post-card.locked:hover {
+  transform: none;
+  box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15),
+    0 1.5px 2px rgba(0,0,0,0.04);
+}
+
+/* Tutors section: responsive grid */
 .post-card-tutors-title {
   color: var(--tutorship-text);
   text-align: center;
   margin-bottom: 0;
   margin-top: 10rem;
 }
-
 .post-card-tutors {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
-
 .tutor-name {
   color: var(--tutorship-text);
   text-align: center;
 }
-
 .post-card-tutor {
   position: relative;
-  display: flex;             
-  flex-direction: column;    
-  justify-content: center;  
-  align-items: center;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   width: 200px;
-
-  .photo {
-    border-radius: 50%;
-    overflow: hidden;    
-    z-index: 5000;
-    display: flex;
-    width: 150px;
-    height: 150px;
-    background-size: contain;
-    background-repeat: no-repeat; 
+  margin: 0.3rem;
+}
+.post-card-tutor .photo {
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 5000;
+  display: flex;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+@media (max-width: 480px) {
+  .post-card-tutor {
+    width: 100px;
   }
-  .rob{ 
-    background-image: url("/rob.png");    
-  }
-
-  .art{ 
-    background-image: url("/art.png");    
-  }
-
-  .dan{ 
-    background-image: url("/dan.png");    
-  }
-
-  .vic{ 
-    background-image: url("/vic.png");    
+  .post-card-tutor .photo {
+    width: 70px;
+    height: 70px;
   }
 }
 
-// Hero-блок с полной шириной 
+.post-card-tutor .rob{ background-image: url("/rob.png"); }
+.post-card-tutor .art{ background-image: url("/art.png"); }
+.post-card-tutor .dan{ background-image: url("/dan.png"); }
+.post-card-tutor .vic{ background-image: url("/vic.png"); }
+
+/* Hero block full width and responsive */
 .hero {
   border-radius: 0rem 0rem 5rem 5rem;
   position: relative;
@@ -195,48 +212,60 @@ body {
   text-align: center;
   padding: 5rem 1rem 6rem;
   margin: calc(-1 * var(--main-top-padding)) -15px 0;
-
-  @media (min-width: 60%) {
+}
+@media (min-width: 60%) {
+  .hero {
     margin: calc(-1 * var(--main-top-padding)) -20px 0;
     padding: 6rem 2rem 7rem;
   }
+}
+.hero .hero-inner {
+  max-width: 100%;
+  margin: 0 auto;
+}
+.hero .site-title {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  line-height: 1.1;
+}
+.hero .site-tagline {
+  margin: 3rem auto 3rem;
+  font-size: 2rem;
+  opacity: 0.95;
+  font-weight: 400;
+  line-height: 1.6;
+  max-width: 100%;
+}
 
-  .hero-inner {
-    max-width: 100%;
-    margin: 0 auto;
+@media (max-width: 480px) {
+  .hero {
+    padding: 3rem 0.5rem 4rem;
   }
-
   .site-title {
-    margin: 0 0 1.5rem;
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    line-height: 1.1;
-  }
-
-  .site-tagline {
-    margin: 3rem auto 3rem;
     font-size: 2rem;
-    opacity: 0.95;
-    font-weight: 400;
-    line-height: 1.6;
-    max-width: 100%;
+  }
+  .site-tagline {
+    font-size: 1.4rem;
+    margin: 1.2rem auto;
+    padding: 0 2vw;
   }
 }
 
-// Кнопки переключения годов
+/* Year-switcher buttons - touch targets and responsive */
 .year-switcher {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;  
+  justify-content: center;
   gap: 1.2rem;
-
-  @media (max-width: 640px) {
+}
+@media (max-width: 640px) {
+  .year-switcher {
     gap: 0.8rem;
   }
 }
-
 .year-btn {
   font-size: 2.7rem;
   font-weight: 800;
@@ -253,271 +282,309 @@ body {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 1px solid rgba(255,255,255,0.3);
   min-width: 140px;
-
-  @media (max-width: 640px) {
+  min-height: 44px; /* Ensures touch target size */
+}
+@media (max-width: 640px) {
+  .year-btn {
     padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    font-size: 1.8rem;
     min-width: 120px;
-  }
-
-  &:hover {
-    transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-    background: #ffffff;
-    color: var(--tutorship-secondary);
-  }
-
-  &.active {
-    background: #ffffff;
-    color: var(--tutorship-secondary);
-    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
-    transform: translateY(-2px);
+    min-height: 40px;
   }
 }
+@media (max-width: 420px) {
+  .year-btn {
+    font-size: 1.1rem;
+    min-width: 100px;
+    padding: 0.5rem 1rem;
+  }
+}
+.year-btn:hover,
+.year-btn:active,
+.year-btn:focus {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  background: #ffffff;
+  color: var(--tutorship-secondary);
+}
+.year-btn.active {
+  background: #ffffff;
+  color: var(--tutorship-secondary);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  transform: translateY(-2px);
+}
 
+/* Responsive wrappers */
 .content-wrapper {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
-
-  @media (min-width: 768px) {
+}
+@media (min-width: 768px) {
+  .content-wrapper {
     padding: 0 2rem;
   }
-
-  @media (min-width: 1200px) {
+}
+@media (min-width: 1200px) {
+  .content-wrapper {
     padding: 0 3rem;
   }
 }
 
-// "Что внутри?"
+/* Features grid more responsive */
 .about {
   margin: 5rem auto;
   text-align: center;
-
-  h2 {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 700;
-    margin-bottom: 2rem;
-    color: var(--tutorship-text);
-    position: relative;
-
-    &::after {
-      content: '';
-      display: flex;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
-      margin: 0.8rem auto 0;
-      border-radius: 2px;
-    }
-  }
-
-  .features {
-    list-style: none;
-    padding: 0;
+}
+.about h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: var(--tutorship-text);
+  position: relative;
+}
+.about h2::after {
+  content: '';
+  display: flex;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
+.about .features {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+@media (max-width: 900px) {
+  .about .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    @media (max-width: 480px) {
-      padding: 0 1rem;
-      gap: 1rem;
-    }
-
-    li {
-      background: var(--tutorship-card-bg);
-      border: 2px solid var(--tutorship-border);
-      border-radius: 1.5rem;
-      padding: 2.5rem 2rem; 
-      font-weight: 500;
-      font-size: 2rem;
-      color: var(--tutorship-text);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-
-      @media (max-width: 768px) {
-        padding: 2rem 1.5rem;
-        font-size: 1.8rem;
-      }
-
-      @media (max-width: 480px) {
-        padding: 1.5rem 1rem;
-        font-size: 1.6rem;
-        border-radius: 1rem;
-      }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
-        background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
-      }
-
-      &:hover {
-        transform: translateY(-8px) scale(1.02);
-        box-shadow: 0 20px 40px var(--tutorship-hover-shadow);
-        border-color: var(--tutorship-primary);
-
-        @media (max-width: 768px) {
-          transform: translateY(-4px) scale(1.01);
-        }
-      }
-    }
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
   }
-} 
+}
+@media (max-width: 480px) {
+  .about .features {
+    padding: 0 1rem;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+  }
+  .about .features li {
+    padding: 1.2rem 1rem;
+    font-size: 1.4rem;
+    border-radius: 1rem;
+  }
+}
+/* Even smaller screens */
+@media (max-width: 320px) {
+  .about .features li {
+    padding: 1rem 0.75rem;
+    font-size: 1.1rem;
+  }
+}
 
-.year-selection-text{
+.about .features li {
+  background: var(--tutorship-card-bg);
+  border: 2px solid var(--tutorship-border);
+  border-radius: 1.5rem;
+  padding: 2.5rem 2rem;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--tutorship-text);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.about .features li::before {
+  content: '';
+  color: var(--tutorship-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
+}
+.about .features li:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px var(--tutorship-hover-shadow);
+  border-color: var(--tutorship-primary);
+  color: var(--tutorship-text);
+}
+@media (max-width: 768px) {
+  .about .features li:hover {
+    transform: translateY(-4px) scale(1.01);
+    color: var(--tutorship-text);
+  }
+}
+
+/* Year-selection */
+.year-selection-text {
   text-align: center;
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 700;
   margin-bottom: 2rem;
   color: var(--tutorship-text);
   position: relative;
+}
+.year-selection-text::after {
+  content: '';
+  display: flex;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
+  margin: 0.8rem auto 0;
+  border-radius: 2px;
+}
 
-  &::after {
-    content: '';
-    display: flex;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, var(--tutorship-primary), var(--tutorship-secondary));
-    margin: 0.8rem auto 0;
-    border-radius: 2px;
-  }
-} 
-
-//Сетка карточек годов
+/* Years grid: full responsiveness */
 .years-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
   margin: 4rem auto 6rem;
   align-items: center;
-
-  @media (max-width: 640px) {
+}
+@media (max-width: 900px) {
+  .years-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 640px) {
+  .years-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
-  .year-card {
-    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 160px;
-    background: var(--tutorship-card-bg);
-    border: 3px solid var(--tutorship-border);
-    border-radius: 1.5rem;
-    color: var(--tutorship-text);
-    font-size: 3rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-
-    @media (max-width: 640px) {
-      height: 140px;
-      font-size: 1.3rem;
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-      90deg, 
-      transparent, 
-      rgba(255,255,255,0.2), 
-      transparent
-      );
-      transition: left 0.6s ease;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-      135deg, 
-      var(--tutorship-primary) 0%, 
-      var(--tutorship-secondary) 100%
-      );
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    &:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 25px 50px var(--tutorship-hover-shadow);
-      border-color: var(--tutorship-primary);
-      color: #ffffff;
-
-      &::before {
-        left: 100%;
-      }
-
-      &::after {
-        opacity: 1;
-      }
-
-      .year-label {
-        position: relative;
-        z-index: 2;
-      }
-    }
-
-    .year-label {
-      position: relative;
-      z-index: 1;
-      transition: all 0.3s ease;
-    }
-
-  }
-
-  .main-card{
-    box-shadow: 5px 15px 35px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    border: 5px solid var(--tutorship-border);
-    height: 200px;
-  }
 }
 
-// Адаптивные улучшения
+.years-grid .year-card, .not-found-card .article-title, .not-found-card .article-subtitle {
+  box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 160px;
+  background: var(--tutorship-card-bg);
+  border: 3px solid var(--tutorship-border);
+  border-radius: 1.5rem;
+  color: var(--tutorship-text);
+  font-size: 3rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 640px) {
+  .years-grid .year-card {
+    height: 140px;
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 480px) {
+  .years-grid .year-card {
+    height: 100px;
+    font-size: 1.8rem;
+  }
+}
+.years-grid .year-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.6s ease;
+}
+.years-grid .year-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--tutorship-primary) 0%, var(--tutorship-secondary) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.years-grid .year-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 25px 50px var(--tutorship-hover-shadow);
+  border-color: var(--tutorship-primary);
+  color: #ffffff;
+}
+.years-grid .year-card:hover::before {
+  left: 100%;
+}
+.years-grid .year-card:hover::after {
+  opacity: 1;
+}
+.years-grid .year-card .year-label {
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.years-grid .main-card {
+  box-shadow: 5px 15px 35px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
+  border: 5px solid var(--tutorship-border);
+  height: 200px;
+}
+
+.not-found-card {
+  height: 1000px;
+  color: var(--tutorship-text);
+  background: url("/background.png");
+}
+
+/* Adaptivity for smaller screens */
 @media (max-width: 768px) {
   .hero {
     padding: 4rem 1rem 5rem;
   }
-
   .content-wrapper {
     padding: 0 1rem;
   }
-
   .about {
     margin: 3rem auto;
   }
-
   .years-grid {
     margin: 3rem auto 4rem;
   }
 }
 
-// Анимации появления
+@media (max-width: 480px) {
+  .about {
+    margin: 2rem auto;
+  }
+  .years-grid {
+    margin: 2rem auto 3rem;
+  }
+  body {
+    font-size: 1.3rem;
+  }
+  .main-card {
+    height: 110px;
+  }
+}
+
+/* Fix for very small screens */
+@media (max-width: 320px) {
+  .about .features li {
+    padding: 1rem 0.75rem;
+    font-size: 1.1rem;
+  }
+}
+
+@import "footer-custom.scss";
+
+/* Animations kept intact */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -532,74 +599,25 @@ body {
 .about {
   animation: fadeInUp 0.8s ease 0.2s both;
 }
-
 .year-selection-text {
   animation: fadeInUp 0.8s ease 0.4s both;
 }
 .years-grid {
   animation: fadeInUp 0.8s ease 0.4s both;
 }
-
 .year-card:nth-child(1) { animation-delay: 0.1s; }
 .year-card:nth-child(2) { animation-delay: 0.2s; }
 .year-card:nth-child(3) { animation-delay: 0.3s; }
 
-
-.not-found-card{
-  height: 1000px;
-  color: var(--tutorship-text);   
-  background: url("/background.png");
-
-  .article-title, .article-subtitle {
-    box-shadow: 0 8px 28px rgba(67, 67, 131, 0.15), 0 1.5px 2px rgba(0,0,0,0.04);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 160px;
-    background: var(--tutorship-card-bg);
-    border: 3px solid var(--tutorship-border);
-    border-radius: 1.5rem;
-    color: var(--tutorship-text);
-    font-size: 3rem;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-  }
-} 
-
-
-// Дополнительные адаптивные правила для мобильных устройств
-@media (max-width: 480px) {
-  .hero {
-    padding: 3rem 0.5rem 4rem;
-    
-    .site-title {
-      font-size: 2rem;
-    }
-    
-    .site-tagline {
-      font-size: 1.6rem;
-      margin: 2rem auto;
-    }
-  }
-  
-  .content-wrapper {
-    padding: 0 0.5rem;
-  }
-  
-  body {
-    font-size: 1.4rem;
+/* Touch-friendly hover fallback for mobile */
+@media (hover: none) and (pointer: coarse) {
+  .post-card:hover,
+  .year-btn:hover,
+  .years-grid .year-card:hover,
+  .about .features li:hover {
+    box-shadow: 0 2px 10px var(--tutorship-hover-shadow);
+    border-color: var(--tutorship-primary);
+    transform: none;
+    color: var(--tutorship-text);;
   }
 }
-
-// Исправление для очень маленьких экранов
-@media (max-width: 320px) {
-  .about .features li {
-    padding: 1rem 0.75rem;
-    font-size: 1.4rem;
-  }
-}
-
-@import "footer-custom.scss";
