@@ -18,18 +18,56 @@
     </ul>
   </section>
 
-  <!-- Карточки годов -->
-  <h2 class="year-selection-text">Выбери свой год поступления!</h2>
-  <section class="years-grid">
-    <a class="year-card" href="/posts/2024/">
-      <span class="year-label">2024</span>
-    </a>
-    <a class="year-card main-card" href="/posts/2025/">
-      <span class="year-label">2025</span>
-    </a>
-    <a class="year-card" href="/posts/2026/">
-      <span class="year-label">2026</span>
-    </a>
-  </section>
+</div>
+
+<h1 class="post-card-tutors-title">Гайды этого года:</h1>
+
+<div class="posts-cards">
+  {{ $now := now }}
+  {{ range sort .Pages "Date" "asc" }}
+    {{ $release := .Date }}
+    {{ $locked := $release.After $now }}
+    <div class="post-card{{ if $locked }} locked{{ end }}">
+      {{ if not $locked }}
+        <a href="{{ .RelPermalink }}" class="card-link"></a>
+      {{ end }}
+      <div class="post-card-title">{{ .Title }}</div>
+      <div class="post-card-content">
+        {{ with .Params.description }}{{ . }}{{ end }}
+      </div>
+      <div class="post-card-content">
+        {{ $release.Format "02-01-2006" }}
+      </div>
+      {{ if $locked }}
+        <div class="lock-overlay">
+          <span class="icon-lock" aria-hidden="true">🔒</span>
+          <div class="lock-text">Доступно с {{ $release.Format "02-01-2006" }}</div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+</div>
+
+<h1 class="post-card-tutors-title">Материалы подготовили:</h1>
+<div class="post-card-tutors">
+  <div class="post-card-tutor">
+    <h2 class="tutor-name">Александр<br>Железко</h2>
+    <span class="photo alex"></span>
+  </div>
+
+  <div class="post-card-tutor">
+      <h2 class="tutor-name">Иван<br>Архипов</h2>
+      <span class="photo ivan"></span>
+  </div>
+
+  <div class="post-card-tutor">
+      <h2 class="tutor-name">Артем<br>Ефимов</h2>
+    <span class="photo artem"></span>
+  </div>
+
+  <div class="post-card-tutor">
+      <h2 class="tutor-name">Ирина<br>Клюева</h2>
+    <span class="photo irina"></span>
+  </div>
 </div>
 {{ end }}
