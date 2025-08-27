@@ -40,9 +40,9 @@ body {
 }
 
 .posts-cards {
-  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, auto);
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(350px, max-content));
   justify-content: center;
   gap: 5rem 10rem;
 }
