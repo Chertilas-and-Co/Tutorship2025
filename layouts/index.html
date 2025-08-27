@@ -24,7 +24,8 @@
 
 <div class="posts-cards">
   {{ $now := now }}
-  {{ range sort .Pages "Date" "asc" }}
+  {{ $posts2025 := where .Site.RegularPages "File.Dir" "in" (slice "posts/2025/") }}
+  {{ range sort $posts2025 "Date" "asc" }}
     {{ $release := .Date }}
     {{ $locked := $release.After $now }}
     <div class="post-card{{ if $locked }} locked{{ end }}">
