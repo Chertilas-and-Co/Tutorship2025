@@ -1,6 +1,6 @@
-baseURL = 'https://example.org/'
+baseURL = 'http://se-tutorship.ru'
 languageCode = 'ru-ru'
-title = 'My New Hugo Site'
+title = 'Курс молодого ПИшника'
 theme = 'stack'
 buildFuture = true
 
