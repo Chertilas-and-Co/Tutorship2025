@@ -14,4 +14,4 @@ COPY . .
 
 EXPOSE 1313
 
-ENTRYPOINT ["./hugo", "-D"]
+ENTRYPOINT ["./hugo", "server", "-D", "--bind", "0.0.0.0"]
